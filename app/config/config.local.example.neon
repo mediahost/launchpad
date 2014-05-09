@@ -1,0 +1,6 @@
+parameters:
+    launchpadApi:
+        url: "http://test.launchpadrecruitsapp.com/"
+        username:
+        pass:
+

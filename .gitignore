@@ -1,0 +1,12 @@
+log/
+temp/
+tmp/
+purge/
+app/config/config.local.neon
+composer.lock
+vendor/
+
+#################
+## NetBeans
+################
+nbproject/

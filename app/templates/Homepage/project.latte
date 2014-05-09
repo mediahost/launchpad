@@ -1,0 +1,59 @@
+{define project}
+
+<table>
+    <tbody>
+        <tr>
+            <th>Count of active (opened and draft) interviews:</th>
+            <td>{$interviewsCount}</td>
+        </tr>
+        <tr>
+            <th>Selected Interview:</th>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>ID:</th>
+                            <td>{$interviewLink->interviewId}</td>
+                        </tr>
+                        <tr>
+                            <th>Title:</th>
+                            <td><a href="{$interviewLink->link}" target="_blank">{$interviewLink->title}</a></td>
+                        </tr>
+                        <tr>
+                            <th>Deadline:</th>
+                            <td>{$interview->deadline|date:'d.m.Y'}</td>
+                        </tr>
+                        <tr>
+                            <th>Recording delay:</th>
+                            <td>{$interview->timeLimit} seconds</td>
+                        </tr>
+                        <tr>
+                            <th>Allow re-recording:</th>
+                            <td>{$interview->rerecord ? 'YES' : 'NO'}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                  
+<h1>Reviewed Interview</h1>
+{if $reviewInterview->isLink}
+    <iframe 
+        width="800" 
+        height="500" 
+        style="border: none;"
+        src="{$reviewInterview->linkUrl}">
+    </iframe>
+{else}
+    {$reviewInterview->linkMessage}
+    <br/>
+    {if $inviteLink->isLink}
+        <a href="{$inviteLink->linkUrl}">Review Interview</a>
+    {else}
+        {$inviteLink->linkMessage}
+    {/if}
+{/if}
+
+{/define}
